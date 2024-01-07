@@ -186,11 +186,24 @@
   margin: auto;
 
 }
+.postauthor{
+  font-size: 1.25rem;
+}
+.postcategory{
+  font-size: 1.1rem;
+}
+.posttitle{
+  font-size: 1.25rem;
+}
 .postcontent{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+}
+.postupload{
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 .categoryname{
   height: 1rem;
@@ -198,7 +211,6 @@
 
 .card-image{
   text-align: center;
-  border: 5px solid;
   margin: 1rem auto;
   padding: auto;
   border-radius: 20px;

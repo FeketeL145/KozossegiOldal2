@@ -41,15 +41,15 @@ export function HomePage()
         {posts.map((posts) => (
           <div className='postcard card col-xs-12 col-md-4 col-xl-2 d-inline-block m-1 p-2 m-3 text-center'>
             <NavLink key={`/Posts/${posts.id}`} to={`/Posts/${posts.id}`}>
-            <p className='posttext'>{posts.id}</p>
-            <p className='posttext'>{posts.author}</p>
-            <p className='posttext'>{posts.category}</p>
+            
+            <p className='posttext postauthor mt-3 '>{posts.author}</p>
+            <p className='posttext postcategory'>{posts.category}</p>
             <img className="img-fluid img-responsive card-image" 
             src={posts.image}
             />
-            <p className='posttext'>{posts.title}</p>
+            <p className='posttext posttitle'>{posts.title}</p>
             <p className='posttext postcontent'>{posts.content}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p className='posttext'>Feltöltés dátuma: <br></br>{posts.createdTime}</p>
+            <p className='posttext postupload'>Feltöltés dátuma: <br></br>{posts.createdTime}</p>
             </NavLink>
           </div>
         ))}

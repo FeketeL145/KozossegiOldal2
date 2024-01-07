@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kozossegi_oldal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+236842ccc9a408a8c02dd1ec3fbc82f0bcb7b525")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe953d3e8bc18477e0e6d51e6febd49b9d28fb9e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kozossegi_oldal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kozossegi_oldal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

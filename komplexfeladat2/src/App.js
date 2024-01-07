@@ -1,25 +1,93 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, NavLink, Routes, Route, useNavigationType, useLocation } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Newpost from "./pages/Newpost";
+import PostsListNature from "./pages/PostsListNature";
+import PostsListMacro from "./pages/PostsListMacro";
+import PostsListBW from "./pages/PostsListBW";
+import PostsListAnimal from "./pages/PostsListAnimal";
+import PostsListSport from "./pages/PostsListSport";
+import PostsListTech from "./pages/PostsListTech";
+import PostsListPortrait from "./pages/PostsListPortrait";
+import PostsListTravel from "./pages/PostsListTravel";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink to={`/`} className="nav-link">
+                <span className="nav-link">MainPage</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Sport`} className="nav-link">
+                <span className="nav-link">Sport</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Animal`} className="nav-link">
+                <span className="nav-link">Animal</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Nature`} className="nav-link">
+                <span className="nav-link">Nature</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Portrait`} className="nav-link">
+                <span className="nav-link">Portrait</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/BW`} className="nav-link">
+                <span className="nav-link">B&W</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Art`} className="nav-link">
+                <span className="nav-link">Art</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Travel`} className="nav-link">
+                <span className="nav-link">Travel</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Macro`} className="nav-link">
+                <span className="nav-link">Macro</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/Food`} className="nav-link">
+                <span className="nav-link">Food</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={`/New-Post`} className="nav-link">
+                <span className="nav-link">New Post</span>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/Sport" element={<PostsListSport/>}/>
+        <Route path="/Animal" element={<PostsListAnimal/>}/>
+        <Route path="/Nature" element={<PostsListNature/>}/>
+        <Route path="/Portrait" element={<PostsListPortrait/>}/>
+        <Route path="/BW" element={<PostsListBW/>}/>
+        <Route path="/Art" element={<PostsListTech/>}/>
+        <Route path="/Travel" element={<PostsListTravel/>}/>
+        <Route path="/Macro" element={<PostsListMacro/>}/>
+        <Route path="/New-Post" element={<Newpost/>}/>
+      </Routes>
+    </Router>
   );
 }
-
 export default App;

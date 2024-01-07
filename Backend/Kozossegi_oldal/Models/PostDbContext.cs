@@ -14,7 +14,7 @@ namespace Kozossegi_oldal.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string conn = "server=localhost; database=kozossegioldal; user=root; password=";
+                string conn = "server=188.36.87.58; Port=8081; database=kozossegioldal; user=root; password=qsrv145";
 
                 optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
             }

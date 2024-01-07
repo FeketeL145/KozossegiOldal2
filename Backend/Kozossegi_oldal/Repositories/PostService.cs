@@ -1,9 +1,6 @@
 ﻿using Kozossegi_oldal.Models;
 using Kozossegi_oldal.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Kozossegi_oldal.Repositories
 {
@@ -53,6 +50,7 @@ namespace Kozossegi_oldal.Repositories
                 Id = Guid.NewGuid(),
                 Title = createPostDto.Title,
                 Author = createPostDto.Author,
+                Category = createPostDto.Category,
                 Content = createPostDto.Content,
                 Image = createPostDto.Image,
                 CreatedTime = DateTime.Now,

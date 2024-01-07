@@ -2731,11 +2731,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ChrisGamerHun\\Desktop\\Kozossegi_oldal\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+      "projectUniqueName": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
       "projectName": "Kozossegi_oldal",
-      "projectPath": "C:\\Users\\ChrisGamerHun\\Desktop\\Kozossegi_oldal\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+      "projectPath": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
       "packagesPath": "C:\\Users\\ChrisGamerHun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ChrisGamerHun\\Desktop\\Kozossegi_oldal\\Backend\\Kozossegi_oldal\\obj\\",
+      "outputPath": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "H:\\Components\\NuGetPackages"

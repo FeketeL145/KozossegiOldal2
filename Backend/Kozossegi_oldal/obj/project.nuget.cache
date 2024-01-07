@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iApAMq66vyXXGKuPyXo+PmCoc4Ks6l0q1oZw+PgZ8bJYRuq5Q4BtgaOhPUDRqsSlaP3AV9gxJX1JjSMgYb0Fwg==",
+  "dgSpecHash": "+33DVNDFx7wEN83SrGS6OQePOophm3kv3wVQTijFYDwQ9NIOJ05jxm+f/l5cqyg6beJNRJVoqOThpVZwGEG5uQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ChrisGamerHun\\Desktop\\Kozossegi_oldal\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+  "projectFilePath": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ChrisGamerHun\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ChrisGamerHun\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

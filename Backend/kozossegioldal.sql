@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 07. 15:24
+-- Létrehozás ideje: 2024. Jan 07. 13:37
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -28,34 +28,61 @@ USE `kozossegioldal`;
 --
 -- Tábla szerkezet ehhez a táblához `posts`
 --
--- Létrehozva: 2024. Jan 07. 14:07
--- Utolsó frissítés: 2024. Jan 07. 14:11
+-- Létrehozva: 2024. Jan 07. 12:22
+-- Utolsó frissítés: 2024. Jan 07. 12:29
 --
 
 CREATE TABLE `posts` (
   `Id` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   `Title` varchar(36) NOT NULL,
-  `Author` varchar(30) NOT NULL,
+  `Likes` int(11) NOT NULL,
   `Content` text NOT NULL,
   `Image` varchar(40) NOT NULL,
-  `CreatedTime` datetime NOT NULL
+  `CreatedTime` datetime NOT NULL,
+  `UsersId` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '00000000-0000-0000-0000-000000000000'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `posts`
 --
 
-INSERT INTO `posts` (`Id`, `Title`, `Author`, `Content`, `Image`, `CreatedTime`) VALUES
-('deb763a6-2a91-4c08-81d9-b9a57d67557f', 'Beauty', 'Valentine', 'Look at this beautiful creature:', 'https://cdn.pixabay.com/photo/2023/12/10', '2024-01-07 15:11:47'),
-('e6b8707c-1af0-4931-a38a-6328fa447e77', 'Goodbye', 'Joseph', 'Our vacation comes to an end.', 'https://cdn.pixabay.com/photo/2024/01/03', '2024-01-07 15:09:25');
+INSERT INTO `posts` (`Id`, `Title`, `Likes`, `Content`, `Image`, `CreatedTime`, `UsersId`) VALUES
+('2cc203af-d1b1-4899-b2fb-794928a44008', 'Nyaralás', 100000, 'Megyek nyaralni a Quatro panzióba.', 'mintakep', '2024-01-07 13:29:18', 'a20bb762-7842-4e11-97d0-0dccad57da5d');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `users`
+--
+-- Létrehozva: 2024. Jan 07. 12:22
+-- Utolsó frissítés: 2024. Jan 07. 12:28
+--
+
+CREATE TABLE `users` (
+  `Id` char(36) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
+  `UserName` varchar(36) NOT NULL,
+  `Name` varchar(20) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `Gender` varchar(30) NOT NULL,
+  `Email` varchar(15) NOT NULL,
+  `DateOfBirth` datetime NOT NULL,
+  `RegisterDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `users`
+--
+
+INSERT INTO `users` (`Id`, `UserName`, `Name`, `Password`, `Gender`, `Email`, `DateOfBirth`, `RegisterDate`) VALUES
+('a20bb762-7842-4e11-97d0-0dccad57da5d', 'Quatro', 'Quatro', 'Hehehe', 'male', 'feketel@kkszki.', '1997-01-07 12:27:39', '2024-01-07 13:28:23');
 
 -- --------------------------------------------------------
 
 --
 -- Tábla szerkezet ehhez a táblához `__efmigrationshistory`
 --
--- Létrehozva: 2024. Jan 07. 14:07
--- Utolsó frissítés: 2024. Jan 07. 14:07
+-- Létrehozva: 2024. Jan 07. 12:22
+-- Utolsó frissítés: 2024. Jan 07. 12:22
 --
 
 CREATE TABLE `__efmigrationshistory` (
@@ -68,7 +95,9 @@ CREATE TABLE `__efmigrationshistory` (
 --
 
 INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
-('20240107140705_DeletedUsers', '8.0.0');
+('20231214064820_CreateDb', '8.0.0'),
+('20231215075417_Fix', '8.0.0'),
+('20231215084036_HotFix', '8.0.0');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -78,6 +107,13 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 -- A tábla indexei `posts`
 --
 ALTER TABLE `posts`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `IX_Posts_UsersId` (`UsersId`);
+
+--
+-- A tábla indexei `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -86,23 +122,15 @@ ALTER TABLE `posts`
 ALTER TABLE `__efmigrationshistory`
   ADD PRIMARY KEY (`MigrationId`);
 
-
 --
--- Metaadat
---
-USE `phpmyadmin`;
-
---
--- A(z) posts tábla metaadatai
+-- Megkötések a kiírt táblákhoz
 --
 
 --
--- A(z) __efmigrationshistory tábla metaadatai
+-- Megkötések a táblához `posts`
 --
-
---
--- A(z) kozossegioldal adatbázis metaadatai
---
+ALTER TABLE `posts`
+  ADD CONSTRAINT `FK_Posts_Users_UsersId` FOREIGN KEY (`UsersId`) REFERENCES `users` (`Id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

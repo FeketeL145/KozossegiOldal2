@@ -1,3 +1,4 @@
+/*
 .morebuttonrectangle {
   position: absolute;
   top: 0;
@@ -164,4 +165,41 @@
   font-size: 24px;
   color: #fff;
   font-family: Inter;
+}
+*/
+
+.postcard{
+  position: relative;
+  border-radius: 40px;
+  margin: auto;
+  max-height: 30rem;
+}
+.posttext {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  display: inline-block;
+  width: 350px;
+  text-overflow: ellipsis;
+}
+.categoryname{
+  height: 1rem;
+}
+
+.card-image{
+  text-align: center;
+  border: 5px solid;
+  margin: 1rem auto;
+  padding: auto;
+  border-radius: 20px;
+}
+.categorytitle{
+  height: 5rem;
+  position: relative;
+  font-weight: 800;
+}
+.killme{
+  display:block;
+  height: 5rem !important; 
 }

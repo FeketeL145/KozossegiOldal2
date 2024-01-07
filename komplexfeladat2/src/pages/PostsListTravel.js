@@ -7,7 +7,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import "./HomePage.css";
+
 
 const PostsListTravel = () => {
   return (

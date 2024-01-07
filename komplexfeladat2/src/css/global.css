@@ -2,6 +2,13 @@
 body {
   margin: 0;
   line-height: normal;
+  background-color: rgba(48, 120, 171, 0.54);
+  background-color: #0b324e;
+  width: 100%;
+  overflow: hidden;
+  font-size: 24px;
+  color: #fff;
+  font-family: Inter;
 }
 
 .bordertester{

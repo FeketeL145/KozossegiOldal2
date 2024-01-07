@@ -12,6 +12,8 @@ import PostsListPortrait from "./pages/PostsListPortrait";
 import PostsListTravel from "./pages/PostsListTravel";
 
 function App() {
+  
+
   return (
     <Router>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">

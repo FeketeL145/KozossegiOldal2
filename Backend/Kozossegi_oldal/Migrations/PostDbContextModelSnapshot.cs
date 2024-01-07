@@ -29,6 +29,10 @@ namespace Kozossegi_oldal.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(30)");
 
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("text");

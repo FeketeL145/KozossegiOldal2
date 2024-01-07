@@ -2725,24 +2725,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ChrisGamerHun\\.nuget\\packages\\": {},
-    "H:\\Components\\NuGetPackages": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+      "projectUniqueName": "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
       "projectName": "Kozossegi_oldal",
-      "projectPath": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
-      "packagesPath": "C:\\Users\\ChrisGamerHun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ChrisGamerHun\\Desktop\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\obj\\",
+      "projectPath": "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "H:\\Components\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ChrisGamerHun\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2750,7 +2745,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

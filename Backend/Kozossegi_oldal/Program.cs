@@ -11,7 +11,18 @@ namespace Kozossegi_oldal
 
             builder.Services.AddDbContext<PostDbContext>();
             builder.Services.AddScoped<IPostInterface, PostService>();
-
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                        builder =>
+                        {
+                            builder.WithOrigins("*")
+                                    .AllowAnyOrigin()
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader();
+                        });
+            });
             builder.Services.AddControllers();
 
             builder.Services.AddEndpointsApiExplorer();
@@ -19,11 +30,17 @@ namespace Kozossegi_oldal
 
             var app = builder.Build();
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseRouting();
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseHttpsRedirection();
 

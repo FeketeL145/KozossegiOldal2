@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "fEz1bqQ4nCtClYDfKnHP0o5eqQ1eq3FtVfW4ZhWaD3vI2WMnVxIo5rL71oGXtupJDhgXFzfhbJRGypetC6PUXA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\ChrisGamerHun\\source\\repos\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'H:\\Components\\NuGetPackages' doesn't exist.",
+      "libraryId": "Swashbuckle.AspNetCore"
+    }
+  ]
+}

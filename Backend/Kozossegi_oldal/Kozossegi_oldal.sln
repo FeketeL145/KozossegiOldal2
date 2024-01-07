@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kozossegi_oldal", "Kozossegi_oldal.csproj", "{3E778F80-D202-460C-9927-835F568B9E69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E778F80-D202-460C-9927-835F568B9E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E778F80-D202-460C-9927-835F568B9E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E778F80-D202-460C-9927-835F568B9E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E778F80-D202-460C-9927-835F568B9E69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A254B3D6-B7B6-42DD-802D-5000A48DEC85}
+	EndGlobalSection
+EndGlobal

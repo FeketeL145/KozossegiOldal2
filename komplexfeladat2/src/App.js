@@ -10,6 +10,7 @@ import PostsListSport from "./pages/PostsListSport";
 import PostsListTech from "./pages/PostsListTech";
 import PostsListPortrait from "./pages/PostsListPortrait";
 import PostsListTravel from "./pages/PostsListTravel";
+import PostsSingleElement from "./pages/PostsSingleElement";
 
 function App() {
   
@@ -88,6 +89,7 @@ function App() {
         <Route path="/Travel" element={<PostsListTravel/>}/>
         <Route path="/Macro" element={<PostsListMacro/>}/>
         <Route path="/New-Post" element={<Newpost/>}/>
+        <Route path="/Posts/:id" element={<PostsSingleElement/>}/>
       </Routes>
     </Router>
   );

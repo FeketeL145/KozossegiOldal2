@@ -20,7 +20,7 @@ namespace Kozossegi_oldal.Models
         [Column(TypeName = "text")]
         public string Content { get; set; }
 
-        [Column(TypeName = "varchar(40)")]
+        [Column(TypeName = "varchar(100)")]
         public string Image { get; set; }
 
         [Column(TypeName = "datetime")]

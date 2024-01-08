@@ -214,6 +214,10 @@
   margin: 1rem auto;
   padding: auto;
   border-radius: 20px;
+  max-height: 400px;
+  max-width: 400px;
+  object-fit: cover;
+  overflow: hidden;
 }
 .categorytitle{
   height: 5rem;

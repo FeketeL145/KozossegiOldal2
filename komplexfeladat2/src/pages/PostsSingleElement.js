@@ -1,23 +1,29 @@
+import { error } from "console";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 export function postSingleElement() {
     const param = useParams();
-    const id = param.PostId;
     const [post, setPost] = useState([]);
     const [isFetchPending, setFetchPending] = useState(false);
 
     useEffect(() => {
         const fetchItem = async () => {
           try {
-            const response = await fetch(`/api/items/${id}`);
+            await axios.GET(`http://localhost/api/items/${post.id}`) 
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
             if (!response.ok) {
               throw new Error('Failed to fetch item');
             }
     
             const data = await response.json();
-            setItem(data);
+            setPost(data);
           } catch (error) {
             console.error('Error fetching item:', error);
           }

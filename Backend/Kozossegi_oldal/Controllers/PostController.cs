@@ -74,7 +74,7 @@ namespace Kozossegi_oldal.Controllers
             try
             {
                 await postService.DeletePost(Id);
-                return Ok();
+                return StatusCode(201, "A posztot sikeresen kitörölte.");
             }
             catch (Exception e)
             {

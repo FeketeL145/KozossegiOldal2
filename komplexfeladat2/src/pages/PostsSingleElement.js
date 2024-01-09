@@ -1,8 +1,7 @@
 import { error } from "console";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, NavLink, Routes, Route, useNavigationType, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 
 export function postSingleElement() {
     const param = useParams();
@@ -37,7 +36,6 @@ export function postSingleElement() {
     return (
     <div>
       {isFetchPending || !posts.id ? (<div className='spinner-border'></div>) : (
-        <router>
         <div>
             <div>
                 <div className='postcard card col-xs-12 col-md-4 col-xl-2 d-inline-block m-1 p-2 text-center'>
@@ -53,7 +51,6 @@ export function postSingleElement() {
                 </div>
             </div>
         </div>
-        </router>
       )}
     </div>
     );
@@ -77,3 +74,4 @@ useEffect(() => {
         })();
     },[id]);
 */ 
+export default postSingleElement;

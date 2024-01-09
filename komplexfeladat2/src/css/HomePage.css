@@ -172,7 +172,7 @@
   position: relative;
   border-radius: 40px;
   margin: auto;
-  max-height: 30rem;
+  max-height: 31rem;
 }
 .posttext {
   position: relative;
@@ -212,10 +212,10 @@
 .card-image{
   text-align: center;
   margin: 1rem auto;
-  padding: auto;
+  padding:auto;
   border-radius: 20px;
-  max-height: 400px;
-  max-width: 400px;
+  max-height: 300px;
+  max-width: 270px;
   object-fit: cover;
   overflow: hidden;
 }

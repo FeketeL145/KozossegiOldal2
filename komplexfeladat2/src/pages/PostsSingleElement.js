@@ -40,7 +40,13 @@ export function postSingleElement() {
                     <p className='posttext'>{post.content}</p>
                     <p className='posttext'>Feltöltés dátuma: <br></br>{post.createdTime}</p>
                     <NavLink to={`/`}>
-                        <button className="bi bi-backspace">Vissza</button>
+                        <button type="button" class="btn btn-danger">Törlés</button>
+                    </NavLink>
+                    <NavLink to={`/`}>
+                        <button type="button" class="btn btn-primary">Módosítás</button>
+                    </NavLink>
+                    <NavLink to={`/`}>
+                        <button type="button" class="btn btn btn-outline-secondary">Vissza</button>
                     </NavLink>
                 </div>
             </div>

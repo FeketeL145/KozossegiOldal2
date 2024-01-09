@@ -37,9 +37,9 @@ export function HomePage()
   return (
     <div>
       {isFetchPending ? (<div className='spinner-border'></div>) : (
-      <div>
+      <div className='d-flex flex-wrap'>
         {posts.map((posts) => (
-          <div className='postcard card col-xs-12 col-md-4 col-xl-2 d-inline-block m-1 p-2 m-3 text-center'>
+          <div className='postcard card m-3 text-center p-2'>
             <NavLink key={`/Posts/${posts.id}`} to={`/Posts/${posts.id}`}>
             
             <p className='posttext postauthor mt-3 '>{posts.author}</p>
@@ -60,25 +60,3 @@ export function HomePage()
 };
 
 export default HomePage;
-
-
-/*
-<div className="bordertester categorytitle">
-          <span class="killme">
-            <i class="bi bi-bicycle"></i>
-            post.
-          </span>
-        </div>
-
-        <NavLink>
-          <div className='postcard card col-xs-12 col-md-4 col-xl-2 d-inline-block m-1 p-2 text-center'>
-            <img className="img-fluid img-responsive card-image" src='https://dummyimage.com/350x325/0/fff'/>
-            <p className='posttext'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                  nisi ut...
-            </p>
-          </div>
-        </NavLink>
-      </div>
-*/

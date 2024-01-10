@@ -19,7 +19,7 @@ const Newpost = () => {
     try {
       setPostData({ ...postData, Category: selectedCategory });
 
-      const response = await fetch('http://localhost:7051/api/Post', {
+      const response = await fetch('http://localhost:5144/api/Post', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ export function HomePage()
 
   useEffect(() => {
     setFetchPending(true);
-    fetch("http://localhost:5144/api/Post/category?category=Travel", {
+    fetch("http://localhost:5144/api/Post/category?category=Art", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

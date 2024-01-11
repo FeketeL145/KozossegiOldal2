@@ -7,10 +7,11 @@ import PostsListMacro from "./pages/PostsListMacro";
 import PostsListBW from "./pages/PostsListBW";
 import PostsListAnimal from "./pages/PostsListAnimal";
 import PostsListSport from "./pages/PostsListSport";
-import PostsListTech from "./pages/PostsListTech";
+import PostsListFood from "./pages/PostsListFood";
 import PostsListPortrait from "./pages/PostsListPortrait";
 import PostsListTravel from "./pages/PostsListTravel";
 import PostsSingleElement from "./pages/PostsSingleElement";
+import PostsListArt from "./pages/PostsListArt";
 
 function App() {
   
@@ -85,9 +86,10 @@ function App() {
         <Route path="/Nature" element={<PostsListNature/>}/>
         <Route path="/Portrait" element={<PostsListPortrait/>}/>
         <Route path="/BW" element={<PostsListBW/>}/>
-        <Route path="/Art" element={<PostsListTech/>}/>
+        <Route path="/Art" element={<PostsListArt/>}/>
         <Route path="/Travel" element={<PostsListTravel/>}/>
         <Route path="/Macro" element={<PostsListMacro/>}/>
+        <Route path="/Food" element={<PostsListFood/>}/>
         <Route path="/New-Post" element={<Newpost/>}/>
         <Route path="/Posts/:id" element={<PostsSingleElement/>}/>
       </Routes>

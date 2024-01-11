@@ -12,7 +12,7 @@ export function postSingleElement() {
       setFetchPending(true);
       (async() => {
           try{
-          const response = await fetch(`https://localhost:5144/api/Post/id?Id=${id}`);
+          const response = await fetch(`http://localhost:5144/api/Post/id?Id=${id}`);
           const post2 = await response.json();
           setPost(post2);
       } 

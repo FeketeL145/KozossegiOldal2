@@ -6,41 +6,57 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+import "../css/App.css";
+import "../css/index.css";
+import "../css/global.css";
+import "../css/HomePage.css";
 
 
-const PostsListSport = () => {
+export function HomePage()
+{
+  const [posts, setPosts] = useState([]);
+  const [isFetchPending, setFetchPending] = useState(false);
+
+  useEffect(() => {
+    setFetchPending(true);
+    fetch("http://localhost:5144/api/Post/category?category=Sport", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*'
+      },
+    })
+      .then((response) => response.json())
+      .then((posts) => setPosts(posts))
+      .catch(console.log)  
+      .finally(() => {
+        setFetchPending(false);
+      });
+    }, []);
+
   return (
-    <div className="homepage">
-      <div className="postcategoryarrow">
-        <div className="category">
-          <div className="post">
-            <img className="postimage-icon" alt="" src="/postimage@2x.png" />
-            <div className="postimageoverlay bordertester" />
-            <div className="postcontentbox bordertester" />
-            <div className="posttitle">Post title</div>
-            <div className="postcontent">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut...
-            </div>
-            <div className="postcontentoverlay" />
-            <div className="profiledname">Display name</div>
+    <div>
+      {isFetchPending ? (<div className='spinner-border'></div>) : (
+      <div className='d-flex flex-wrap'>
+        {posts.map((posts) => (
+          <div className='postcard card m-3 text-center p-2'>
+            <NavLink key={`/Posts/${posts.id}`} to={`/Posts/${posts.id}`}>
+            
+            <p className='posttext postauthor mt-3 '>{posts.author}</p>
+            <p className='posttext postcategory'>{posts.category}</p>
+            <img className="img-fluid img-responsive card-image" 
+            src={posts.image}
+            />
+            <p className='posttext posttitle'>{posts.title}</p>
+            <p className='posttext postcontent'>{posts.content}</p>
+            <p className='posttext postupload'>Feltöltés dátuma: <br></br>{posts.createdTime}</p>
+            </NavLink>
           </div>
-          
-          <div className="categorytitle bordertester">
-            <div className="categorytitle1">CategoryName</div>
-            <img className="categoryicon" alt="" src="/categoryicon@2x.png" />
-          </div>
-          <div className="morebutton">
-            <div className="morebuttonrectangle" />
-            <img className="moreicon" alt="" src="/moreicon@2x.png" />
-            <div className="moretext">Discover more</div>
-          </div>
-        </div>
+        ))}
       </div>
+      )}
     </div>
   );
 };
 
-export default PostsListSport;
+export default HomePage;

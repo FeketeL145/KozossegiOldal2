@@ -19,7 +19,7 @@ export function HomePage()
 
   useEffect(() => {
     setFetchPending(true);
-    fetch("https://localhost:7051/api/Post", {
+    fetch("http://localhost:5144/api/Post", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

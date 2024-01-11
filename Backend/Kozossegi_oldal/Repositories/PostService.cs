@@ -1,6 +1,10 @@
 ﻿using Kozossegi_oldal.Models;
 using Kozossegi_oldal.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Kozossegi_oldal.Repositories
 {
@@ -29,6 +33,18 @@ namespace Kozossegi_oldal.Repositories
         public async Task<IEnumerable<Posts>> Get()
         {
             return await dbContext.Posts.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Posts>> GetByCategory(string category)
+        {
+            var postsInCategory = await dbContext.Posts.Where(post => post.Category == category).ToListAsync();
+
+            if (postsInCategory.Count == 0)
+            {
+                throw new KeyNotFoundException($"A {category} kategóriával bejegyzés nem található.");
+            }
+
+            return postsInCategory;
         }
 
         public async Task<Posts> GetById(Guid id)

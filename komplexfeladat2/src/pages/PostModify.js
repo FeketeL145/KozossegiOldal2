@@ -2,6 +2,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
+
 export function PostModify() {
     const navigate = useNavigate();
     const param = useParams();
@@ -13,7 +15,7 @@ export function PostModify() {
         setFetchPending(true);
         (async() => {
             try{
-                const res = await fetch(`https://localhost:7051/api/Post${id}`);
+                const res = await fetch(`https://localhost:5144/api/Post${id}`);
             const Post = await res.json();
             setPost(Post);
         } 
@@ -33,7 +35,7 @@ export function PostModify() {
                 (event) => {
                     event.persist();
                     event.preventDefault();
-                    fetch(`https://localhost:7051/api/Post${id}`, {
+                    fetch(`https://localhost:5144/api/Post${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

@@ -12,6 +12,8 @@ import PostsListPortrait from "./pages/PostsListPortrait";
 import PostsListTravel from "./pages/PostsListTravel";
 import PostsSingleElement from "./pages/PostsSingleElement";
 import PostsListArt from "./pages/PostsListArt";
+import { PostModify } from "./pages/PostModify";
+import { PostDelete } from "./pages/PostDelete";
 
 function App() {
   
@@ -92,6 +94,8 @@ function App() {
         <Route path="/Food" element={<PostsListFood/>}/>
         <Route path="/New-Post" element={<Newpost/>}/>
         <Route path="/Posts/:id" element={<PostsSingleElement/>}/>
+        <Route path="/Delete-Post/:id" element={<PostDelete/>}/>
+        <Route path="/Modify-Post/:id" element={<PostModify/>}/>
       </Routes>
     </Router>
   );

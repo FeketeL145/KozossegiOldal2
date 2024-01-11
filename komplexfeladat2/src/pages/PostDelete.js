@@ -11,7 +11,7 @@ export function PostDelete(){
         setFetchPending(true);
         (async() => {
         try {
-        const response = await fetch(`https://localhost:7051/api/Post/${id}`)
+        const response = await fetch(`https://localhost:5144/api/Post/${id}`)
         const post2 = await response.json();
         if (!response.ok){
             throw new Error(`status hibakod: ${response.status}`)
@@ -34,7 +34,7 @@ return (
                 onSubmit={(e) => {
                     e.persist();
                     e.preventDefault();
-                    fetch(`https://localhost:7051/api/Post/${id}`, {
+                    fetch(`https://localhost:5144/api/Post/${id}`, {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",

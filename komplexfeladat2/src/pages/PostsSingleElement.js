@@ -12,7 +12,7 @@ export function postSingleElement() {
       setFetchPending(true);
       (async() => {
           try{
-          const response = await fetch(`http://localhost:5144/api/Post/id?Id=${id}`);
+          const response = await fetch(`http://localhost:5144/api/Post/${id}`);
           const post2 = await response.json();
           setPost(post2);
       } 
@@ -42,10 +42,10 @@ export function postSingleElement() {
                     <NavLink to={`/`}>
                         <button type="button" class="btn btn-danger">Törlés</button>
                     </NavLink>
-                    <NavLink to={`/`}>
+                    <NavLink to={`/Modify-Post/:id`}>
                         <button type="button" class="btn btn-primary">Módosítás</button>
                     </NavLink>
-                    <NavLink to={`/`}>
+                    <NavLink to={`/Delete-Post/:id`}>
                         <button type="button" class="btn btn btn-outline-secondary">Vissza</button>
                     </NavLink>
                 </div>

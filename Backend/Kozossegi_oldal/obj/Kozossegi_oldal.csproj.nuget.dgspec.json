@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "H:\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj": {}
+    "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj": {}
   },
   "projects": {
-    "H:\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj": {
+    "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+        "projectUniqueName": "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
         "projectName": "Kozossegi_oldal",
-        "projectPath": "H:\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
-        "packagesPath": "C:\\Users\\ChrisGamerHun\\.nuget\\packages\\",
-        "outputPath": "H:\\SubPart_kplexfeladat2\\Backend\\Kozossegi_oldal\\obj\\",
+        "projectPath": "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\Kozossegi_oldal.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\programozas\\ikt\\komplexfeladat2\\Backend\\Kozossegi_oldal\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "H:\\Components\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ChrisGamerHun\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

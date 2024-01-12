@@ -87,7 +87,6 @@ namespace Kozossegi_oldal.Repositories
 
             postToUpdate.Title = updatePostDto.Title;
             postToUpdate.Author = updatePostDto.Author;
-            postToUpdate.Category = updatePostDto.Category;
             postToUpdate.Content = updatePostDto.Content;
             postToUpdate.Image = updatePostDto.Image;
 

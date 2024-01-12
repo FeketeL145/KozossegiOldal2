@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export function postSingleElement() {
     const param = useParams();
-    const id= param.id;
+    const id = param.id;
     const [post, setPost] = useState([]);
     const [isFetchPending, setFetchPending] = useState(false);
     useEffect(() => {
@@ -13,8 +13,8 @@ export function postSingleElement() {
       (async() => {
           try{
           const response = await fetch(`http://localhost:5144/api/Post/${id}`);
-          const post2 = await response.json();
-          setPost(post2);
+          const post = await response.json();
+          setPost(post);
       } 
       catch(error){
           console.log(error);
@@ -28,35 +28,47 @@ export function postSingleElement() {
     
 
     return (
-    <div>
+    <div className="p-5 m-auto text-center content bg-ivory">
       {isFetchPending || !post.id ? (<div className='spinner-border'></div>) : (
-        <div>
-            <div>
-                <div className='postcard card col-xs-12 col-md-4 col-xl-2 d-inline-block m-1 p-2 text-center'>
-                    <p className='posttext'>{post.author}</p>
-                    <p className='posttext'>{post.category}</p>
-                    <img className="img-fluid img-responsive card-image" src={post.image} alt={post.title} />
-                    <p className='posttext'>{post.title}</p>
-                    <p className='posttext'>{post.content}</p>
-                    <p className='posttext'>Feltöltés dátuma: <br></br>{post.createdTime}</p>
-                    <NavLink to={`/`}>
-                        <button type="button" class="btn btn-danger">Törlés</button>
-                    </NavLink>
-                    <NavLink to={`/Modify-Post/:id`}>
-                        <button type="button" class="btn btn-primary">Módosítás</button>
-                    </NavLink>
-                    <NavLink to={`/Delete-Post/:id`}>
-                        <button type="button" class="btn btn btn-outline-secondary">Vissza</button>
-                    </NavLink>
-                </div>
-            </div>
+      <div className="card col-sm-8 d-inline-block p-2" style={{borderRadius: '20px', backgroundColor: '#0A2234', color: 'white'}}>
+        <div className="card-body">
+          <h2 style={{ textAlign: 'center', fontWeight: 'bold' }}>{post.title}</h2>
+          <p style={{ textAlign: 'center', fontSize: '20px' }}>{post.category}</p>
+            <img src={post.image} alt={post.image} style={{maxWidth: '80%', maxHeight: '100%', objectFit: 'cover', alignSelf: 'center', borderRadius: '10px' }}/>
+          <h3 style={{ textAlign: 'center' }} className='mt-3 mb-3'>{post.content}</h3>
+          <h5 style={{ textAlign: 'center'}} className="mb-3">Photo by: {post.author}</h5>
+          <div>
+          <NavLink to={`/Delete-Post/${id}`} className="p-2">
+            
+            <button type="button" className="btn btn-outline-danger"><i class="bi bi-trash3"></i> Delete</button>
+          </NavLink>
+          <NavLink to={`/Modify-Post/${id}`} className="p-2">
+
+            <button type="button" className="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Modify</button>
+          </NavLink>
+          <NavLink to={`/`} className="p-2">
+
+            <button type="button" className="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back</button>
+          </NavLink>
+          </div>
         </div>
+      </div> 
       )}
     </div>
     );
 }
 
 /*
+<NavLink to={`/Delete-Post/${id}`}>
+  <button type="button" className="btn btn-danger">Törlés</button>
+</NavLink>
+<NavLink to={`/Modify-Post/${id}`}>
+  <button type="button" className="btn btn-primary">Módosítás</button>
+</NavLink>
+<NavLink to={`/`}>
+  <button type="button" className="btn btn-outline-secondary">Vissza</button>
+</NavLink>
+
 
 
   useEffect(() => {

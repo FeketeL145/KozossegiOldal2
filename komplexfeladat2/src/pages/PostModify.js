@@ -1,105 +1,113 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-
-
+import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function PostModify() {
-    const navigate = useNavigate();
-    const param = useParams();
-    const id = param.PostId;
-    const [PostData, setPost] = useState([]);
-    const [isFetchPending, setFetchPending] = useState(false);
+  const [postData, setPostData] = useState({
+    Id: '',
+    Title: '',
+    Author: '',
+    Category: '',
+    Content: '',
+    Image: '',
+  });
 
-    useEffect(() => {
-        setFetchPending(true);
-        (async() => {
-            try{
-                const res = await fetch(`https://localhost:5144/api/Post${id}`);
-            const Post = await res.json();
-            setPost(Post);
-        } 
-        catch(error){
-            console.log(error);
-        }
-        finally{
-            setFetchPending(false);
-        }
-        })();
-    },[id]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const navigate = useNavigate();
 
-    return(
-        <div className="p-5 content bg-whitesmoke text-center">
-            <h2>Post módosítása</h2>
-            <form onSubmit={
-                (event) => {
-                    event.persist();
-                    event.preventDefault();
-                    fetch(`https://localhost:5144/api/Post${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                    id: id,
-                    title: event.target.title.value,
-                    author: event.target.author.value,
-                    category: event.target.category.value,
-                    content: event.target.content.value,
-                    Image: event.target.Image.value,
-                })
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
-            }
-            }>
-            <div className="form-group row pb-3">
-                <label className="col-sm-3 col-form-label">Cím:</label>
-                    <div>
-                        <input type="text" name="name" className="form-control" value={PostData.name}/>
-                    </div>
-            </div>
-            <div className="form-group row pb-3">
-                <label className="col-sm-3 col-form-label">Beküldő:</label>
-                    <div>
-                        <input type="text" name="kepURL" className="form-control" value={PostData.author}/>
-                    </div>
-            </div>
-            <div className="form-group row pb-3">
-                <label className="col-sm-3 col-form-label">Kategória:</label>
-                    <div>
-                        <input type="text" name="kepURL" className="form-control" value={PostData.category}/>
-                    </div>
-            </div>
-            <div className="form-group row pb-3">
-                <label className="col-sm-3 col-form-label">Leírás:</label>
-                    <div>
-                        <input type="text" name="kepURL" className="form-control" value={PostData.content}/>
-                    </div>
-            </div>
-            <div className="form-group row pb-3">
-                <label className="col-sm-3 col-form-label">Kép URL:</label>
-                    <div>
-                        <input type="text" name="kepURL" className="form-control" value={PostData.Image}/>
-                    </div>
-            </div>
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setPostData({ ...postData, Category: selectedCategory });
+
+      const response = await fetch(`http://localhost:5144/api/Post/${postData.Id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+
+      if (response.ok) {
+        console.log('Post successfully updated!');
+        navigate('/');
+      } else {
+        console.error('Error updating post');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleChange = (e, fieldName) => {
+    setPostData({ ...postData, [fieldName]: e.target.value });
+  };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
 
 
-
-
-
-            <div className="d-flex justify-content-between">
-                    <div className="w-50">
-                        <button type="submit" className="btn btn-primary">Mentés</button>
-                    </div>
-                    <div className="w-50">
-                        <NavLink to={`/egy-Post/${PostData.id}`}>
-                                <button className="btn btn-secondary">Vissza</button>
-                        </NavLink>
-                    </div>
-            </div>
-        </form>
+  return (
+    <form onSubmit={handleFormSubmit} className='p-5 text-center'>
+        <h1>Modify post</h1>
+      <div className='row'>
+        <div className='col'>
         </div>
-    )
-}
+      <div className='form-group row col-6 text-center'>
+      <input
+          type="text"
+          className="form-control mt-2"
+          placeholder={postData.Author || "Author"}
+          value={postData.Author}
+          onChange={(e) => handleChange(e, 'Author')}
+        />
+        <input
+          type="text"
+          className="form-control mt-2"
+          placeholder={postData.Title || "Title"}
+          value={postData.Title}
+          onChange={(e) => handleChange(e, 'Title')}
+        />
+        <textarea
+          className="form-control mt-2"
+          placeholder={postData.Content || "Content Placeholder"}
+          value={postData.Content}
+          onChange={(e) => handleChange(e, 'Content')}
+          rows={8} // Set the number of visible rows
+        />
+        <input
+          type="text"
+          className="form-control mt-2"
+          placeholder={postData.Image || "ImageURL"}
+          value={postData.Image}
+          onChange={(e) => handleChange(e, 'Image')}
+        />
+        
+          
+            <button className="btn btn-outline-light dropdown-toggle d-inline mb-2 mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">{selectedCategory || 'Category'}</button>
+            <div>
+            <ul className="dropdown-menu">
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Sport')}>Sport</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Animal')}>Animal</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Nature')}>Nature</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Portrait')}>Portrait</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('B@W')}>B@W</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Art')}>Art</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Travel')}>Travel</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Macro')}>Macro</a></li>
+              <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Food')}>Food</a></li>
+            </ul>
+          </div>
+        <button type="submit" className="btn btn-outline-primary d-inline mb-2"><i class="bi bi-check2"></i> Post</button>
+        <button className="btn btn-outline-secondary d-inline mb-2" onClick={() => navigate('/')}><i class="bi bi-arrow-left"></i> Back</button>
+      </div>
+      <div className='col'>
+      </div>
+      </div>
+    </form>
+  );
+};
+
+export default PostModify;
+

@@ -25,7 +25,7 @@ function App() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink to={`/`} className="nav-link">
-                <span className="nav-link">MainPage</span>
+                <span className="nav-link">Home</span>
               </NavLink>
             </li>
             <li className="nav-item">

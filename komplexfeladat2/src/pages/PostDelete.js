@@ -1,62 +1,41 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, NavLink, Routes, Route, useNavigate, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-export function PostDelete(){
-    const params = useParams();
-    const id = params.id;
+export function PostDelete() {
     const navigate = useNavigate();
-    const [Post, setPost] = useState([]);
-    const [isFetchPending, setFetchPending] = useState(false);
-    useEffect(() => {
-        setFetchPending(true);
-        (async() => {
-        try {
-        const response = await fetch(`https://localhost:5144/api/Post/${id}`)
-        const post2 = await response.json();
-        if (!response.ok){
-            throw new Error(`status hibakod: ${response.status}`)
-        }
-        setPost(post2);
-            } catch(error) {
-                console.log(error);
+    const param = useParams();
+    const postid = param.id;
+
+    return(
+        <form onSubmit={
+                (event) => {
+                    event.persist();
+                    event.preventDefault();
+                    fetch(`http://localhost:5144/api/Post/${postid}`, {
+                    method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .then(navigate('/'))
+            .catch(error => console.error('Error:', error));
             }
-        finally{
-          setFetchPending(false);
-      }
-    })();
-}, [id]);
-return (
-    <div className="p-5 text-center content bg-whitesmoke">
-        {isFetchPending || !Post.id ? (<div className="spinner-border"></div>) : (
-        <div>
-            <h2>Post törlése</h2>
-            <form
-                onSubmit={(e) => {
-                    e.persist();
-                    e.preventDefault();
-                    fetch(`https://localhost:5144/api/Post/${id}`, {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    })
-                    .then(() => {
-                        navigate("/");
-                    })
-                    .catch(console.log);
-                }}
-                >
-                <div>
-                    <NavLink to={`/`}>
-                        <button type="submit" class="btn btn-danger">Törlés</button>
-                    </NavLink>
-                    <NavLink to={`/Post/${Post.id}`}>
-                        <button className="btn btn-secondary">Vissza</button>
-                    </NavLink>
+        }>
+            <div className="p-5 m-auto text-center content bg-ivory">
+            <h1>Are you sure you want to delete the post?</h1>
+
+                <div className='form-group row text-center'>
+
+                    <div className="col">
+                    </div>
+                    <div className="col-6">
+                    <button type="submit" className="btn btn-outline-danger ms-2"><i class="bi bi-emoji-dizzy"></i> Yes</button>
+                    <button className="btn btn-outline-primary ms-2" onClick={() => navigate(`/Posts/${postid}`) }><i class="bi bi-emoji-smile"></i> No</button>
+                    </div>
+                    <div className="col">
+                    </div>
                 </div>
-            </form>
-        </div>
-        )}
-    </div>
-);
+            </div>
+        
+        </form>
+    );
 }

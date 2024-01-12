@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Newpost = () => {
   const [postData, setPostData] = useState({
@@ -11,6 +12,8 @@ const Newpost = () => {
     Image: '',
     CreatedTime: new Date(),
   });
+
+  const navigate = useNavigate();
 
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -25,7 +28,7 @@ const Newpost = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(postData),
-      });
+      }).then(navigate('/'));
 
       if (response.ok) {
         console.log('Post successfully submitted!');
@@ -46,30 +49,36 @@ const Newpost = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <div className='postcard card form-group row col-xs-12 col-md-6 col-xl-4 mt-5 p-2 text-center'>
-        <div className="input-group mt-3 mb-3">
-          <input
+    
+    <form onSubmit={handleFormSubmit} className='p-5 text-center'>
+      <h1>New Post</h1>
+      <div className='row'>
+        <div className='col'>
+        </div>
+      <div className='form-group row col-6 text-center'>
+        <input
             type="text"
-            className="form-control mt-3"
+            className="form-control mt-2"
             placeholder="Author"
             value={postData.Author}
             onChange={(e) => handleChange(e, 'Author')}
+            required
           />
-        </div>
         <input
           type="text"
           className="form-control mt-2"
           placeholder="Title"
           value={postData.Title}
           onChange={(e) => handleChange(e, 'Title')}
+          required
         />
-        <input
-          type="text"
+        <textarea
           className="form-control mt-2"
-          placeholder="Content"
+          placeholder={postData.Content || "Content"}
           value={postData.Content}
           onChange={(e) => handleChange(e, 'Content')}
+          rows={8} // Set the number of visible rows
+          required
         />
         <input
           type="text"
@@ -77,12 +86,13 @@ const Newpost = () => {
           placeholder="ImageURL"
           value={postData.Image}
           onChange={(e) => handleChange(e, 'Image')}
+          required
         />
-        <div className="input-group mb-3">
-          <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+            <button className="btn btn-outline-light dropdown-toggle d-inline mb-2 mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" required>
               {selectedCategory || 'Category'}
             </button>
+            <div>
             <ul className="dropdown-menu">
               <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Sport')}>Sport</a></li>
               <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Animal')}>Animal</a></li>
@@ -94,16 +104,13 @@ const Newpost = () => {
               <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Macro')}>Macro</a></li>
               <li><a className="dropdown-item" href="#" onClick={() => handleCategorySelect('Food')}>Food</a></li>
             </ul>
-          </div>
-        </div>
-        <input
-          type="submit"
-          value="Beküldés"
-          className="btn btn-primary d-inline mb-2"
-        />
-        <NavLink to={`/`}>
-          <button className="d-inline btn btn-secondary">Vissza</button>
-        </NavLink>
+            </div>
+            
+        <button type="submit" className="btn btn-outline-primary d-inline mb-2"><i class="bi bi-check2"></i> Post</button>
+        <button className="btn btn-outline-secondary d-inline mb-2" onClick={() => navigate('/')}><i class="bi bi-arrow-left"></i> Back</button>
+      </div>
+      <div className='col'>
+      </div>
       </div>
     </form>
   );
